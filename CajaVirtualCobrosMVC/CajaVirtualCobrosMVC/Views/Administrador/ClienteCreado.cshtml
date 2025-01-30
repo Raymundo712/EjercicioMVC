@@ -1,0 +1,26 @@
+﻿@using CajaVirtualCobrosMVC.Models;
+
+@{
+    var clienteModel = ViewBag.ClienteModel as ClienteViewModel;
+}
+
+<link href="@Url.Content("~/Content/site.css")" rel="stylesheet" type="text/css" />
+
+<h1 style="text-align: center; font-size: 24px;">Cliente Creado</h1>
+
+<p style="font-size: 18px;">Fecha de Alta: @DateTime.Now</p>
+
+<p style="font-size: 18px;">Nombre de Cliente: @clienteModel.Cliente.Nombre</p>
+<p style="font-size: 18px;">Numero de Cliente: @clienteModel.Cliente.NumeroCliente</p>
+
+<p style="font-size: 18px;">Nombre de Usuario: @clienteModel.Usuario.UsuarioNombre</p>
+<p style="font-size: 18px;">Estado de Cuenta Saldo: @clienteModel.Cliente.EstadoCuenta.Saldo</p>
+
+<button onclick="imprimir()" style="font-size: 18px; background-color: #337ab7; border-color: #337ab7; color: #fff; padding: 10px 20px; margin-top: 20px;">Imprimir</button>
+
+<script>
+    function imprimir() {
+        window.print();
+    }
+</script>
+

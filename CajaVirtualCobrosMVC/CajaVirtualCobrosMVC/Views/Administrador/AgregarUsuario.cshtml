@@ -1,0 +1,66 @@
+﻿@model CajaVirtualCobrosMVC.Models.ClienteViewModel
+
+@{
+    List<SelectListItem> elementos = new List<SelectListItem>();
+    if (Model != null && Model.Roles != null)
+    {
+        foreach (var rol in Model.Roles)
+        {
+            elementos.Add(new SelectListItem { Text = rol.Nombre, Value = rol.Id.ToString() });
+        }
+    }
+}
+
+<link href="@Url.Content("~/Content/site.css")" rel="stylesheet" type="text/css" />
+
+<h1 style="text-align: center; font-size: 24px;">Crear Cliente</h1>
+
+<form id="formCliente" style="max-width: 400px; margin: 0 auto;">
+    <div class="form-group">
+        <label for="Cliente.Nombre" style="font-size: 18px;">Nombre Completo:</label>
+        <input type="text" id="Cliente.Nombre" name="Cliente.Nombre" maxlength="50" class="form-control" style="font-size: 16px;" />
+    </div>
+    <div class="form-group">
+        <label for="Usuario.UsuarioNombre" style="font-size: 18px;">Nombre de Usuario:</label>
+        <input type="text" id="Usuario.UsuarioNombre" name="Usuario.UsuarioNombre" maxlength="15" class="form-control" style="font-size: 16px;" />
+    </div>
+    <div class="form-group">
+        <label for="Usuario.Contrasena" style="font-size: 18px;">Contraseña:</label>
+        <input type="password" id="Usuario.Contrasena" name="Usuario.Contrasena" maxlength="15" class="form-control" style="font-size: 16px;" />
+    </div>
+    <div class="form-group">
+        <label for="Rol_Id" style="font-size: 18px;">Rol del Usuario:</label>
+        @Html.DropDownListFor(model => model.Rol_Id, elementos, "Seleccione un rol", new {@class = "form-control listpickerrol", style = "font-size: 16px;"})
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="background-color: #337ab7; border-color: #337ab7;">Guardar</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Capturar el evento de envío del formulario
+        $("#formCliente").submit(function (e) {
+            e.preventDefault(); // Evitar el envío normal del formulario
+
+            // Obtener los datos del formulario
+            var formData = $(this).serialize();
+
+            // Enviar los datos mediante AJAX
+            $.ajax({
+                url: "/Administrador/AltaCliente", // URL del controlador y la acción correspondiente
+                type: "POST",
+                data: formData, // Datos del formulario
+                success: function (response) {
+                    window.location.href = "/Administrador/ClienteCreado";
+                    console.log(response);
+                    // Realizar cualquier acción adicional necesaria
+                },
+                error: function (xhr, status, error) {
+                    // Manejar el error de la solicitud AJAX
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>

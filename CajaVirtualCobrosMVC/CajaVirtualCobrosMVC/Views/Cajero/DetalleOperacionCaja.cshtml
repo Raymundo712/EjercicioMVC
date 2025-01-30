@@ -1,0 +1,50 @@
+﻿@using CajaVirtualCobrosMVC.Models;
+
+@{
+    var estadoCuentaCliente = ViewBag.EstadoCuentaCliente as ConceptosEstadoCuentaCliente;
+}
+
+
+<h1>Estado de Cuenta Actualizado</h1>
+<p>Nombre de Cliente: @estadoCuentaCliente.Cliente.Nombre</p>
+<p>Numero de Cliente: @estadoCuentaCliente.Cliente.NumeroCliente</p>
+
+<ul id="movimientos-list"></ul>
+
+<p>Saldo: @estadoCuentaCliente.EstadoCuenta.Saldo.ToString("C2")</p>
+
+<button onclick="imprimir()">Imprimir</button>
+
+<script>
+    var movimientos = @Json.Serialize(estadoCuentaCliente.Movimientos);
+    var movimientosList = document.getElementById("movimientos-list");
+
+    movimientos.forEach(function (movimiento) {
+        var listItem = document.createElement("li");
+        var movimientoTexto = "";
+        if (movimiento.conceptoCobro != null) {
+            console.log("Concepto Cobro:", movimiento.conceptoCobro);
+            movimientoTexto = " Concepto Cobro: " + movimiento.conceptoCobro.nombre + "|  Monto: " + movimiento.conceptoCobro.valor.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
+            console.log("Movimiento Texto:", movimientoTexto);
+        } else {
+            movimientoTexto = " Abono a Cuenta " + "|  Monto: " + movimiento.abono.toLocaleString('es-MX', { style: 'currency', currency: 'MXN' });
+            console.log("Movimiento Texto:", movimientoTexto);
+        }
+
+        var fecha = new Date(movimiento.fechaMovimiento);
+        var dia = fecha.getDate().toString().padStart(2, '0');
+        var mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+        var anio = fecha.getFullYear().toString();
+
+        var fechaFormateada = anio + '-' + mes + '-' + dia;
+
+        listItem.textContent = "Fecha Movimiento: " + fechaFormateada +" | "+ movimientoTexto;
+        console.log("listItem.textContent: ", listItem.textContent);
+        movimientosList.appendChild(listItem);
+    });
+
+    function imprimir() {
+        window.print();
+    }
+</script>
+

@@ -1,0 +1,225 @@
+﻿@model CajaVirtualCobrosMVC.Models.ConceptosEstadoCuentaCliente
+@using CajaVirtualCobrosMVC.Entidades
+@using System.Text.Json
+
+@{
+    var movimientoSerializado = JsonSerializer.Serialize(Model.Movimiento);
+    var estadoCuentaSerializado = JsonSerializer.Serialize(Model.EstadoCuenta);
+}
+
+<script src= "https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+
+<script>
+    var estadoCuenta = JSON.parse('@Html.Raw(estadoCuentaSerializado)');
+    console.log("estadoCuenta:", estadoCuenta);
+
+    var conceptos = @Html.Raw(Json.Serialize(Model.Conceptos));
+    console.log("conceptos:", conceptos);
+
+    var movimientos = @Html.Raw(Json.Serialize(Model.EstadoCuenta.Movimientos));
+    console.log("movimientos:", movimientos);
+
+    var movimientosList = movimientos;
+    console.log("movimientosList:", movimientosList);
+
+    function actualizarGridCobro() {
+        var movimiento = JSON.parse('@Html.Raw(movimientoSerializado)') || {};
+        console.log("movimiento:", movimiento);
+
+        var conceptoId = $(".listpickerconcepto").val();
+        console.log("conceptoId:", conceptoId);
+        var concepto = obtenerConceptoPorId(conceptoId);
+        console.log("concepto:", concepto);
+
+        if (concepto !== null) 
+        {
+            var table = document.getElementById("movimientosGrid");
+            console.log("tabla", table);
+
+            var row = document.createElement("tr");
+            var cell1 = document.createElement("td");
+            var cell2 = document.createElement("td");
+            var cell3 = document.createElement("td");
+
+            cell1.innerText = "Cobro " + concepto.nombre;
+            cell2.innerText = concepto.valor.toLocaleString("es-MX", {style: "currency", currency: "MXN"});
+            cell3.innerHTML = "<button class='btn btn-danger' onclick = 'eliminarMovimiento(this.parentNode.parentNode)'>Eliminar</button>";
+
+            row.appendChild(cell1);
+            row.appendChild(cell2);
+            row.appendChild(cell3);
+
+            row.setAttribute("data-index", movimientos.length);
+
+            movimiento.EstadoCuenta_Id = estadoCuenta.Id
+            movimiento.FechaMovimiento = new Date();
+            movimiento.ConceptoCobro_Id = concepto.id;
+
+            movimientos.push(movimiento);
+            console.log("movimientos", movimientos);
+
+            console.log("row", row);
+            table.querySelector("tbody").appendChild(row);
+            console.log("tabla", table);
+        }
+        movimientosList = movimientos;
+        console.log("movimientosList:", movimientosList);
+    }
+
+    function obtenerFechaActual()
+    {
+        var fechaActual = new Date();
+        var dia = fechaActual.getDate();
+        var mes = fechaActual.getMonth() + 1;
+        var año = fechaActual.getFullYear();
+
+        // Formatear la fecha como "dd/mm/yyyy"
+        var fechaFormateada = dia + "/" + mes + "/" + año;
+
+        console.log("Fecha actual:", fechaFormateada);
+
+        return fechaFormateada;
+    }
+
+    function obtenerConceptoPorId(conceptoId) {
+        console.log("conceptoId:", conceptoId);
+        console.log("conceptos:", conceptos);
+
+
+        for (var i = 0; i < conceptos.length; i++) {
+            console.log("conceptos[i]id:", conceptos[i].id);
+            console.log("conceptoId:", conceptoId);
+            if (conceptos[i].id == conceptoId) {
+                return conceptos[i];
+                console.log("Valor retornado:", conceptos[i].id);
+            }
+        }
+        return null;
+    }
+
+    function actualizarGridAbono() 
+    {
+        var movimiento = JSON.parse('@Html.Raw(movimientoSerializado)') || {};
+        console.log("movimiento:", movimiento);
+
+        var montoAbonoInput = document.getElementById("MontoAbono");
+        var montoAbono = montoAbonoInput.value;
+        console.log("Monto de Abono", montoAbono);
+
+        if (montoAbono !== null) {
+            var table = document.getElementById("movimientosGrid");
+            console.log("tabla", table);
+
+            var row = document.createElement("tr");
+            var cell1 = document.createElement("td");
+            var cell2 = document.createElement("td");
+            var cell3 = document.createElement("td");
+
+            cell1.innerText = "Abono a Cuenta ";
+            cell2.innerText = "-"+ parseFloat(montoAbono).toLocaleString("es-MX", { style: "currency", currency: "MXN" });
+            cell3.innerHTML = "<button class='btn btn-danger' onclick = 'eliminarMovimiento(this.parentNode.parentNode)'>Eliminar</button>";
+
+            row.appendChild(cell1);
+            row.appendChild(cell2);
+            row.appendChild(cell3);
+
+            row.setAttribute("data-index", movimientos.length);
+
+            movimiento.EstadoCuenta_Id = estadoCuenta.Id;
+            movimiento.FechaMovimiento = new Date();
+            movimiento.Abono = montoAbono;
+            console.log("movimiento", movimiento);
+
+            movimientos.push(movimiento);
+            console.log("movimientos", movimientos);
+
+            console.log("row", row);
+            table.querySelector("tbody").appendChild(row);
+            console.log("tabla", table);
+        }
+        movimientosList = movimientos;
+        console.log("movimientosList:", movimientosList);
+    }
+
+    function eliminarMovimiento(row) {
+        //Obtener la posicion del row
+        var rowIndex = $("#movimientosGrid tbody tr").index(row);
+        console.log("posicion row", rowIndex);
+        if(rowIndex != -1)
+        {
+            // Obtener el índice asociado al elemento de la lista de movimientos
+            var movimientoIndex = parseInt(row.getAttribute("data-index"));
+
+            // Eliminar el elemento de la lista de movimientos
+            movimientos.splice(movimientoIndex, 1);
+            console.log("movimientos", movimientos);
+
+
+            // Eliminar el row de la tabla
+            $(row).remove();
+            console.log("Fila eliminada en la posición: " + rowIndex);
+        }
+        else
+        {
+            console.log("No se encontró la fila en la tabla");
+        }
+        movimientosList = movimientos;
+        console.log("movimientosList:", movimientosList);
+    }
+
+    function procesarMovimientos() {
+        var movimientosList = movimientos;
+        var urlProcesarMovimientos = '@Url.Action("ProcesarMovimientosCuenta")';
+
+        // Realizar la solicitud al controlador
+        $.ajax({
+            url: urlProcesarMovimientos,
+            type: 'POST',
+            data: JSON.stringify(movimientosList),
+            contentType: 'application/json',
+            success: function (response) {
+                console.log('Respuesta del servidor:', response);
+                window.location.href = "/Cajero/DetalleOperacionCaja";
+            },
+            error: function (error) {
+                console.log('Error en la solicitud AJAX:', error);
+            }
+        });
+    }
+
+
+</script>
+
+
+<h1>Capturar Movimientos</h1>
+
+<p>Nombre del Cliente: @Model.Cliente.Nombre</p>
+<p>Número de Cliente: @Model.Cliente.NumeroCliente</p>
+
+@{
+    List<SelectListItem> items = new List<SelectListItem>();
+    foreach (var concepto in Model.Conceptos)
+    {
+        items.Add(new SelectListItem { Text = concepto.Nombre + " - " + concepto.Valor.ToString("C2"), Value = concepto.Id.ToString() });
+    }
+}
+@Html.DropDownListFor(model => model.ConceptoCobroId, items, "Seleccione Concepto Cobro", new {@class = "listpickerconcepto"})
+<input type="button" value="Agregar Cobro a Cuenta" onclick="actualizarGridCobro()" />
+
+<label for="MontoAbono">Monto a Abonar:</label>
+<input type="number" id="MontoAbono" name="MontoAbono" />
+<input type="button" value="Agregar Abono a Cuenta" onclick="actualizarGridAbono()"/>
+
+<table class="table" id="movimientosGrid">
+    <thead>
+        <tr>
+            <th>Movimiento</th>
+            <th>Monto</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<button type="button" onclick="procesarMovimientos()">Procesar Movimientos</button>

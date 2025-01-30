@@ -1,0 +1,17 @@
+﻿@model CajaVirtualCobrosMVC.Entidades.Cliente
+
+<link href="@Url.Content("~/Content/site.css")" rel="stylesheet" type="text/css" />
+
+<h1>Modulo Gestion Usuario</h1>
+
+<h2>Ingrese el numero de Cliente para Gestionarlo</h2>
+
+@using (Html.BeginForm("EdicionEliminacionUsuario", "Administrador", FormMethod.Post))
+{
+    <label for="NumeroCliente">Numero de Cliente:</label>
+    <input type="text" id="NumeroCliente" name="NumeroCliente" />
+    <input type="submit" value="Gestionar Usuario Existente" />
+}
+
+<h2>O bien Agregue un Cliente Nuevo</h2>
+<button type="button" onclick="location.href='@Url.Action("AgregarUsuario")'">Agregar Cliente Nuevo</button>

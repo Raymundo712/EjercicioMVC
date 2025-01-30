@@ -1,0 +1,8 @@
+﻿@model CajaVirtualCobrosMVC.Models.ClienteViewModel
+
+<h1>Datos del Cliente</h1>
+
+<p>Nombre: @Model.Cliente.Nombre</p>
+<p>Numero de Cliente: @Model.Cliente.NumeroCliente</p>
+
+<button type="button" onclick="location.href='@Url.Action("ObtenerEstadoCuenta", new { clienteId = @Model.Cliente.Id })'">Obtener Estado de Cuenta</button>

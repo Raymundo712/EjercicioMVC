@@ -1,0 +1,81 @@
+﻿@model CajaVirtualCobrosMVC.Models.ClienteViewModel
+
+@{
+    List<SelectListItem> elementos = new List<SelectListItem>();
+    if (Model != null && Model.Roles != null)
+    {
+        foreach (var rol in Model.Roles)
+        {
+            elementos.Add(new SelectListItem { Text = rol.Nombre, Value = rol.Id.ToString() });
+        }
+    }
+}
+
+<link href="@Url.Content("~/Content/site.css")" rel="stylesheet" type="text/css" />
+
+<h1>Editar Cliente</h1>
+
+<form id="formCliente">
+    <div>
+        <input type="hidden" id="Cliente.Id" name="Cliente.Id" value="@Model.Cliente.Id" />
+    </div>
+    <div>
+        <label for="Cliente.Nombre">Nombre Completo:</label>
+        <input type="text" id="Cliente.Nombre" name="Cliente.Nombre" maxlength="50" value="@Model.Cliente.Nombre"/>
+    </div>
+    <div>
+        <input type="hidden" id="Cliente.NumeroCliente" name="Cliente.NumeroCliente" value="@Model.Cliente.NumeroCliente" />
+    </div>
+    <div>
+        <input type="hidden" id="Cliente.Usuario_Id" name="Cliente.Usuario_Id" value="@Model.Cliente.Usuario_Id" />
+    </div>
+    <div>
+        <input type="hidden" id="Usuario.Id" name="Usuario.Id" value="@Model.Usuario.Id" />
+    </div>
+    <div>
+        <label for="Usuario.UsuarioNombre">Nombre de Usuario:</label>
+        <input type="text" id="Usuario.UsuarioNombre" name="Usuario.UsuarioNombre" maxlength="15" value="@Model.Usuario.UsuarioNombre" />
+    </div>
+    <div>
+        <label for="Usuario.Contrasena">Contraseña:</label>
+        <input type="password" id="Usuario.Contrasena" name="Usuario.Contrasena" maxlength="15" value="@Model.Usuario.Contrasena" />
+    </div>
+    <div>
+        <input type="hidden" id="Usuario.Rol_Id" name="Usuario.Rol_Id" value="@Model.Usuario.Rol_Id" />
+    </div>
+    <div>
+        <label for="Rol_Id">Rol del Usuario:</label>
+        @Html.DropDownListFor(model => model.Rol_Id, elementos, @Model.Usuario.Rol.Nombre, new {@class = "listpickerrol", name = "Rol_Id"})
+    </div>
+
+    <button type="submit">Guardar</button>
+</form>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Capturar el evento de envío del formulario
+        $("#formCliente").submit(function (e) {
+            e.preventDefault(); // Evitar el envío normal del formulario
+
+            // Obtener los datos del formulario
+            var formData = $(this).serialize();
+
+            // Enviar los datos mediante AJAX
+            $.ajax({
+                url: "/Administrador/EditadoCliente", // URL del controlador y la acción correspondiente
+                type: "POST",
+                data: formData, // Datos del formulario
+                success: function (response) {
+                    window.location.href = "/Administrador/ClienteEditado";
+                    console.log(response);
+                    // Realizar cualquier acción adicional necesaria
+                },
+                error: function (xhr, status, error) {
+                    // Manejar el error de la solicitud AJAX
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>

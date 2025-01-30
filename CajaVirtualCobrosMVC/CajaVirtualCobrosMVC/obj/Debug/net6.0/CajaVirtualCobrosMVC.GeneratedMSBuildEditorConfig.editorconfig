@@ -1,0 +1,97 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CajaVirtualCobrosMVC
+build_property.RootNamespace = CajaVirtualCobrosMVC
+build_property.ProjectDir = E:\GitHub\Proyectos Personales\CajaVirtualCobrosMVC\CajaVirtualCobrosMVC\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\GitHub\Proyectos Personales\CajaVirtualCobrosMVC\CajaVirtualCobrosMVC
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/AgregarUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxBZ3JlZ2FyVXN1YXJpby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/ClienteCreado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxDbGllbnRlQ3JlYWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/ClienteEditado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxDbGllbnRlRWRpdGFkby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/ClienteEliminado.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxDbGllbnRlRWxpbWluYWRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/CrearConcepto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxDcmVhckNvbmNlcHRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/EdicionEliminacionUsuario.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxFZGljaW9uRWxpbWluYWNpb25Vc3VhcmlvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/EditarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxFZGl0YXJDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/EditarConcepto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxFZGl0YXJDb25jZXB0by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/EliminarCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxFbGltaW5hckNsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/ModuloAdministrador.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxNb2R1bG9BZG1pbmlzdHJhZG9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/ModuloAdministrativo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxNb2R1bG9BZG1pbmlzdHJhdGl2by5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/ModuloGestionConcepto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxNb2R1bG9HZXN0aW9uQ29uY2VwdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Administrador/ModuloGestionUsuarios.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWRvclxNb2R1bG9HZXN0aW9uVXN1YXJpb3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Cajero/CapturaMovimientos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqZXJvXENhcHR1cmFNb3ZpbWllbnRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Cajero/DetalleOperacionCaja.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqZXJvXERldGFsbGVPcGVyYWNpb25DYWphLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Cajero/ModuloCaja.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqZXJvXE1vZHVsb0NhamEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Cajero/ModuloCajero.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FqZXJvXE1vZHVsb0NhamVyby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Cliente/Cliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxDbGllbnRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/GitHub/Proyectos Personales/CajaVirtualCobrosMVC/CajaVirtualCobrosMVC/Views/Cliente/ObtenerEstadoCuenta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZVxPYnRlbmVyRXN0YWRvQ3VlbnRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 

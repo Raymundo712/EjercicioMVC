@@ -1,0 +1,41 @@
+﻿@model CajaVirtualCobrosMVC.Entidades.EstadoCuenta
+
+<head>
+    <script>
+        function imprimir()
+        {
+            window.print();
+        }
+    </script>
+</head>
+
+<h1>Estado de Cuenta</h1>
+
+<p>Saldo: @Model.Saldo.ToString("C2")</p>
+
+<h2>Movimientos</h2>
+
+@if(Model.Movimientos != null && Model.Movimientos.Count > 0)
+{
+    <ul>
+        @foreach(var movimiento in Model.Movimientos)
+        {
+            <li>Fecha Movimiento: @movimiento.FechaMovimiento.ToString("dd/MM/yyyy")</li>
+            @if (movimiento.ConceptoCobro != null)
+            {
+                <li>Concepto Cobro: @movimiento.ConceptoCobro?.Nombre - Monto: @(movimiento.ConceptoCobro?.Valor.ToString("C2"))</li>
+
+            }
+            else
+            {
+                <li>Abono: @movimiento.Abono.ToString("C2")</li>
+            }
+        }
+    </ul>
+}
+else
+{
+    <p>No hay movimientos disponibles</p>
+}
+
+<button onclick="imprimir()">Imprimir</button>

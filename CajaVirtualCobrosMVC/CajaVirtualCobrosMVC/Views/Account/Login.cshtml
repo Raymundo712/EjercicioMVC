@@ -1,0 +1,22 @@
+﻿@model CajaVirtualCobrosMVC.Models.LoginViewModel
+
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<div class="login-container">
+    <h2>Inicio de Sesión</h2>
+
+    <form asp-action="Login" method="post">
+        <div>
+            <label for="Username">Usuario:</label>
+            <input type="text" id="Username" name="Username" />
+        </div>
+        <div>
+            <label for="Password">Contraseña:</label>
+            <input type="password" id="Password" name="Password" />
+        </div>
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+</div>

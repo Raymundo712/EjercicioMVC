@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "hiP65r1tstcIfXWCqV3SFDQXOvbPbBoisdn4u/8iuKHSi8Y9mNXyEypgY9+Ifq/BA5UC2EmVzrml5WhAHAxxuQ==",
+  "success": true,
+  "projectFilePath": "E:\\GitHub\\Proyectos Personales\\CajaVirtualCobrosMVC\\CajaVirtualCobrosMVC\\CajaVirtualCobrosMVC.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Raymundo\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

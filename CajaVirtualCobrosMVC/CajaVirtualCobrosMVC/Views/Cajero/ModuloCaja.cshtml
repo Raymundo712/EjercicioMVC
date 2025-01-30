@@ -1,0 +1,14 @@
+﻿@model CajaVirtualCobrosMVC.Entidades.Cliente
+
+<h1>Modulo Caja</h1>
+
+<h2>Ingrese el numero de Cliente</h2>
+
+@using (Html.BeginForm("CapturaMovimientos", "Cajero", FormMethod.Post))
+{
+    <label for="NumeroCliente">Numero de Cliente:</label>
+    <input type="text" id="NumeroCliente" name="NumeroCliente" />
+    <input type="submit" value="Capturar Movimientos"/>
+}
+
+

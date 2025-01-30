@@ -1,0 +1,18 @@
+﻿@model CajaVirtualCobrosMVC.Entidades.Cliente
+
+<h1>Modulo Cajero</h1>
+
+@if (Model != null)
+{
+    <p>Bienvenido: @Model.Nombre</p>
+    <p>Numero de Cliente: @Model.NumeroCliente</p>
+    <button type="button" onclick="location.href='@Url.Action("ObtenerEstadoCuenta", "Cliente", new { clienteId = @Model.Id })'">Obtener Estado de Cuenta</button>
+}
+else
+{
+    <button type="button" disabled>Obtener Estado de Cuenta</button>
+
+}
+
+<button type="button" onclick="location.href='@Url.Action("ModuloCaja")'">Abrir Modulo de Caja</button>
+

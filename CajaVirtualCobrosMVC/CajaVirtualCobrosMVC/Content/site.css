@@ -1,0 +1,102 @@
+﻿body {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.btn {
+    font-size: 18px;
+    padding: 10px 20px;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    border-color: #d9534f;
+    color: #fff;
+}
+/* Estilos para el encabezado h1 */
+h1 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el párrafo */
+p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los botones */
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+    button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+    }
+
+/* Estilo para la tabla */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+    /* Estilo para las filas de la tabla */
+    .table tr {
+        background-color: #f8f8f8;
+    }
+
+    /* Estilo para las celdas de la tabla */
+    .table td, .table th {
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    /* Estilo para el encabezado de la tabla */
+    .table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+/* Estilo para los enlaces */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+    /* Estilo para los enlaces al pasar el mouse */
+    a:hover {
+        text-decoration: underline;
+    }
+
+/* Estilo para el botón de crear nuevo */
+.create-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 8px 16px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Estilo para el botón de editar */
+.edit-button {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/* Estilo para el botón de eliminar */
+.delete-button {
+    color: #dc3545;
+    text-decoration: none;
+}

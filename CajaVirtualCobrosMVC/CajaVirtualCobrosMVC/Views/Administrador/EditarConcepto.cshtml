@@ -1,0 +1,24 @@
+﻿@using CajaVirtualCobrosMVC.Entidades
+@model ConceptoCobro
+
+<h2 style="text-align: center; font-size: 24px;">Editar Concepto de Cobro</h2>
+
+@using (Html.BeginForm("EditarConcepto", "Administrador", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(model => model.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre, new { style = "font-size: 18px;" })
+        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", style = "font-size: 18px;", Value = Model.Nombre })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Valor, new { style = "font-size: 18px;" })
+        @Html.TextBoxFor(model => model.Valor, new { @class = "form-control", style = "font-size: 18px;", Value = Model.Valor })
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="font-size: 18px;">Guardar</button>
+}
+
